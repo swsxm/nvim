@@ -1,4 +1,7 @@
--- Set leader key
+-- Map 'jk' in insert mode to escape to normal mode
+vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
+
+-- Set leader key   
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
