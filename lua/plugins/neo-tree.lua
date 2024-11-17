@@ -321,7 +321,19 @@ return {
         }
       })
 
-      vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-      vim.keymap.set('n', '<leader>e', ':Neotree toggle position=left<CR>', { noremap = true, silent = true })
+    -- Function to check if Neo-tree is open and toggle accordingly
+    local function open_neotree()
+      -- Check if Neo-tree is open
+      local neotree = require("neo-tree")
+      if not neotree.config.window.is_open then
+        vim.cmd("Neotree position=left")
+      end
+    end
+
+    -- Keymap to open Neo-tree without toggling
+    vim.keymap.set('n', '<leader>e', open_neotree, { noremap = true, silent = true })
+
+    -- Keymap to close Neo-tree
+    vim.keymap.set('n', '<leader>E', ':Neotree close<CR>', { noremap = true, silent = true })
     end
 }
