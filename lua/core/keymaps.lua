@@ -1,8 +1,9 @@
 -- Time in milliseconds to wait for a second key after leade
 vim.o.timeoutlen = 2000
 
--- Map 'jk' in insert mode to escape to normal mode
+-- Map 'jk' in insert mode to escape to normal mode in insert and terminal mode
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "jk", [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Set leader key
 vim.g.mapleader = " "
