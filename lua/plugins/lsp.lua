@@ -177,6 +177,11 @@ return {
 							pylsp_black = { enabled = false },
 							pylsp_isort = { enabled = false },
 						},
+						{
+							diagnostics = {
+								enable = "error",
+							},
+						},
 					},
 				},
 			},

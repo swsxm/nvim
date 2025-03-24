@@ -23,4 +23,6 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.misc"),
 	require("plugins.debug"),
+	require("plugins.markdown"),
+	require("plugins.zen"),
 })
