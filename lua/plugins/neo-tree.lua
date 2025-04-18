@@ -335,6 +335,11 @@ return {
 			})
 		end, { noremap = true, silent = true, desc = "Neo-tree Float (Filesystem)" })
 
+		vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { fg = "#50fa7b", bg = "NONE" }) -- set border color
+		vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { fg = "#50fa7b", bg = "NONE" }) -- title bar
+
 		-- Keymap to close Neo-tree
 		vim.keymap.set("n", "<leader>E", ":Neotree close<CR>", { noremap = true, silent = true })
 	end,

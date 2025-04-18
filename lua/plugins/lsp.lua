@@ -177,11 +177,6 @@ return {
 							pylsp_black = { enabled = false },
 							pylsp_isort = { enabled = false },
 						},
-						{
-							diagnostics = {
-								enable = "error",
-							},
-						},
 					},
 				},
 			},
@@ -218,6 +213,13 @@ return {
 				},
 			},
 		}
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+		vim.lsp.handlers["textDocument/signatureHelp"] =
+			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#50fa7b", bg = "NONE" })
 
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
