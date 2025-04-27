@@ -36,11 +36,9 @@ return {
 			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 			cond = hide_in_width,
 		}
-		local custom_theme = require("plugins.lualine_theme").theme()
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = custom_theme, -- Set theme based on environment variable
 				-- Some useful glyphs:
 				-- https://www.nerdfonts.com/cheat-sheet
 				--        

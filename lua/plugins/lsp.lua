@@ -218,9 +218,6 @@ return {
 		vim.lsp.handlers["textDocument/signatureHelp"] =
 			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#50fa7b", bg = "NONE" })
-
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
 		--  other tools, you can run
