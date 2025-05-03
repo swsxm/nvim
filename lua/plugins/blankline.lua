@@ -19,7 +19,7 @@ return {
 			--    whenever the colorscheme changes
 			local hooks = require("ibl.hooks")
 			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-				vim.api.nvim_set_hl(0, "RainbowWhite", { fg = "#565F89" })
+				vim.api.nvim_set_hl(0, "RainbowWhite", { fg = "#333333" })
 			end)
 
 			-- 2) Finally, apply the indent-blankline setup using your opts
