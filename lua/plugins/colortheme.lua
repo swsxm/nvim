@@ -13,7 +13,7 @@ return {
 			base05 = "#ffffff",
 			base06 = "#999999",
 			base07 = "#c1c1c1",
-			base08 = "#5f8787",
+			base08 = "#ffffff",
 			base09 = "#aaaaaa",
 			base0A = "#e78a53",
 			base0B = "#fbcb97",
@@ -22,8 +22,6 @@ return {
 			base0E = "#999999",
 			base0F = "#444444",
 		})
-
-		-- Enable plugin integrations
 		require("base16-colorscheme").with_config({
 			telescope = true,
 			indentblankline = true,
@@ -34,7 +32,28 @@ return {
 			dapui = true,
 		})
 
-		-- Optionally set the colorscheme name (for statusline integration etc.)
-		vim.g.colors_name = "base16-da-one-black-custom"
+		vim.g.colors_name = "base16-black-metal-custom"
 	end,
 }
+
+-- return {
+-- 	"RRethy/base16-nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		-- Basic setup using a built-in theme (replace later)
+--
+-- 		-- Configuration for plugin integrations (enable as needed)
+-- 		require("base16-colorscheme").with_config({
+-- 			telescope = true,
+-- 			indentblankline = true,
+-- 			notify = true,
+-- 			ts_rainbow = true,
+-- 			cmp = true,
+-- 			illuminate = true,
+-- 			dapui = true,
+-- 		})
+--
+-- 		vim.cmd("colorscheme base16-black-metal-immortal")
+-- 	end,
+-- }
