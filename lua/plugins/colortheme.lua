@@ -8,7 +8,7 @@ return {
 			vim.cmd("colorscheme badwolf")
 
 			-- Override background for core UI areas
-			local black = "#000000"
+			local black = "#1c1f20"
 			vim.api.nvim_set_hl(0, "Normal", { bg = black })
 			vim.api.nvim_set_hl(0, "NormalNC", { bg = black })
 			vim.api.nvim_set_hl(0, "SignColumn", { bg = black })
