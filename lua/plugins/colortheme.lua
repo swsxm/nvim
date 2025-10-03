@@ -1,11 +1,14 @@
--- lua/plugins/gruvbox_vim.lua
 return {
-	"morhetz/gruvbox",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.g.gruvbox_contrast_dark = "hard" -- options: "hard", "medium", default ""
-		vim.o.background = "dark"
-		vim.cmd("colorscheme gruvbox")
-	end,
+	{
+		"bluz71/vim-nightfly-colors",
+		name = "nightfly",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfly").custom_colors({
+				white = "#f8f8f8",
+			})
+			vim.cmd.colorscheme("nightfly")
+		end,
+	},
 }
