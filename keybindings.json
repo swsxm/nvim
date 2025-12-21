@@ -1,0 +1,44 @@
+[
+  {
+    "key": "enter",
+    "command": "search.action.focusSearchList",
+    "when": "searchViewletFocus && searchInputBoxFocus"
+  },
+
+  {
+    "key": "q",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "searchViewletFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "workbench.action.closePanel",
+    "when": "terminalFocus"
+  }
+]
