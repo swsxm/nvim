@@ -1,0 +1,56 @@
+{
+  "window.zoomLevel": 3,
+  "workbench.startupEditor": "none",
+  "editor.smoothScrolling": true,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  "files.autoSave": "afterDelay",
+  "files.associations": {
+    "*module": "php"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "autoDocstring.docstringFormat": "google",
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.focusActiveEditorGroup",
+    "workbench.action.toggleMaximizedPanel",
+    "workbench.action.closePanel"
+  ],
+  "security.allowedUNCHosts": [
+    "wsl.localhost"
+  ],
+  "github.com.copilot.nextEditSuggestions.enabled": false,
+  "github.com.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "remote.extensionKind": {
+    "GitHub.copilot": [
+      "ui"
+    ],
+    "GitHub.copilot-chat": [
+      "ui"
+    ]
+  },
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.neovimExecutablePaths.linux": "/opt/nvim-linux64/bin/nvim",
+  "vscode-neovim.compositeKeys": {
+    "jk": {
+      "command": "vscode-neovim.lua",
+      "args": [
+        "vim.api.nvim_input('<ESC>')"
+      ]
+    }
+  },
+  "editor.lineNumbers": "relative",
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "solid",
+}
