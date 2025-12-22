@@ -10,6 +10,11 @@
     "when": "searchViewletFocus && !inputFocus"
   },
   {
+    "key": "q",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
     "key": "j",
     "command": "list.focusDown",
     "when": "searchViewletFocus && !inputFocus"
@@ -43,5 +48,6 @@
     "key": "ctrl+oem_1",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
-}
+  }
 ]
+
