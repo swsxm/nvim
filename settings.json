@@ -1,7 +1,6 @@
 {
   "window.zoomLevel": 3,
   "workbench.startupEditor": "none",
-  "editor.smoothScrolling": true,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "files.autoSave": "afterDelay",
@@ -36,7 +35,7 @@
     ]
   },
   "chat.instructionsFilesLocations": {
-    ".github/instructions": true,
+    ".github/instructions": true
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -45,12 +44,10 @@
   "vscode-neovim.compositeKeys": {
     "jk": {
       "command": "vscode-neovim.lua",
-      "args": [
+    "args": [
         "vim.api.nvim_input('<ESC>')"
       ]
     }
   },
-  "editor.lineNumbers": "relative",
-  "editor.cursorStyle": "block",
-  "editor.cursorBlinking": "solid",
+  "editor.lineNumbers": "relative"
 }

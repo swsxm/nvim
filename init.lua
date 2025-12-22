@@ -11,9 +11,6 @@ vim.keymap.set('v', '>', '>gv', opts)
 vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("v", "p", '"_dP', opts)
 
--- Smooth scrolling with centering
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
-vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
 if vim.g.vscode then
     local vscode = require('vscode')
