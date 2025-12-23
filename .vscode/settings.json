@@ -35,7 +35,7 @@
     ]
   },
   "chat.instructionsFilesLocations": {
-    ".github/instructions": true
+    ".github/instructions": true,
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -49,5 +49,5 @@
       ]
     }
   },
-  "editor.lineNumbers": "relative"
+  "editor.lineNumbers": "relative",
 }
