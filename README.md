@@ -10,6 +10,7 @@ Welcome to my nvim config!
    - For a detailed plugin overview, look into `lua/plugins`.
 - My convenient keymaps.
 - Zellij is used as the terminal emulator.
+- Contains also some keybindings i use in vscode, look into `.vscode/`
 - Debugging setup for Python, which is a bit specific:  
    - It uses visidata to inspect DataFrames.  
    - For example, when debugging, hovering over a DataFrame and clicking `dv` opens visidata with the DataFrame.
