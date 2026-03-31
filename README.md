@@ -1,13 +1,22 @@
-# Neovim Kickstart Config
+# Neovim Config
 
-This repo contains my custom Neovim config, built on top of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). It's designed to provide a clean, modern setup with LSP support, autocomplete, formatting, and everything else you'd expect from a serious Neovim setup.
+Welcome to my nvim config!
 
-> [!IMPORTANT]
-> Since the original video was recorded, Neovim has been updated to **v0.11.2** (as of 2025-07-13), and this config has been adapted accordingly.  
-> If you're still on Neovim **v0.10.x**, use the legacy setup on the [v0.10.1 branch](https://github.com/hendrikmi/neovim-kickstart-config/tree/v0.10.1).
+## General
 
-### 🎥 Full Setup Walkthrough
+- This is a basic Neovim setup with a few plugins.  
+   - For a detailed plugin overview, look into `lua/plugins`.
+- My convenient keymaps.
+- Zellij is used as the terminal emulator.
+- Debugging setup for Python, which is a bit specific:  
+   - It uses visidata to inspect DataFrames.  
+   - For example, when debugging, hovering over a DataFrame and clicking `dv` opens visidata with the DataFrame.
+    ![Screenshot](img/visidate_debug_example.png)
 
-Want to follow along and set this up from scratch? Watch the full video guide:
+## Requirements
 
-[![Full Neovim Setup from Scratch in 2025](https://img.youtube.com/vi/KYDG3AHgYEs/0.jpg)](https://youtu.be/KYDG3AHgYEs?si=I71UjuoQg2fHLGyu)
+- Neovim 0.11+
+- visidata installed (install it with `pipx` or otherwise)
+- Generally speaking, this is based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim); follow the installation guide there.
+- Other requirements will be added if I don't forget to add them...
+
