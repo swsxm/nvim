@@ -5,9 +5,6 @@ vim.g.maplocalleader = ' '
 -- Use 'jk' to exit Insert Mode and return to Normal Mode
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit Insert Mode' })
 
--- Use 'jk' to exit Visual Mode as well (optional but helpful)
-vim.keymap.set('v', 'jk', '<Esc>', { desc = 'Exit Visual Mode' })
-
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
