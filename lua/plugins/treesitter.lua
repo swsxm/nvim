@@ -1,52 +1,40 @@
-return { -- Highlight, edit, and navigate code
+return {
   'nvim-treesitter/nvim-treesitter',
+  commit = 'c82bf96', 
   build = ':TSUpdate',
-  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-  -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+  main = 'nvim-treesitter.configs',
   opts = {
     ensure_installed = {
-      'lua',
-      'python',
-      'javascript',
-      'typescript',
-      'vimdoc',
-      'vim',
-      'regex',
-      'terraform',
-      'sql',
-      'dockerfile',
-      'toml',
-      'json',
-      'java',
-      'groovy',
-      'go',
-      'gitignore',
-      'graphql',
-      'yaml',
-      'make',
-      'cmake',
-      'markdown',
-      'markdown_inline',
-      'bash',
-      'tsx',
-      'css',
-      'html',
+      -- Core & Documentation
+      'lua', 'vim', 'vimdoc', 'regex', 'markdown', 'markdown_inline', 'bash',
+      -- Python Stack
+      'python', 'toml', 'yaml', 'json', 'gitignore',
+      -- Web & JavaScript
+      'javascript', 'typescript', 'tsx', 'html', 'css', 'graphql',
+      -- Systems & Infrastructure
+      'c', 'cpp', 'make', 'cmake', 'dockerfile', 'terraform', 'sql',
     },
-    -- Autoinstall languages that are not installed
-    auto_install = true,
+
+    auto_install = false, 
+    sync_install = false,
+
     highlight = {
       enable = true,
-      -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-      --  If you are experiencing weird indenting issues, add the language to
-      --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-      additional_vim_regex_highlighting = { 'ruby' },
+      additional_vim_regex_highlighting = false,
     },
-    indent = { enable = true, disable = { 'ruby' } },
+
+    indent = { 
+      enable = true 
+    },
+
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = '<c-space>',   -- Ctrl+Space to start selecting a block
+        node_incremental = '<c-space>', -- Keep hitting to expand the selection
+        scope_incremental = '<c-s>',   -- Select the entire outer scope
+        node_decremental = '<M-space>',  -- Alt+Space to shrink selection
+      },
+    },
   },
-  -- There are additional nvim-treesitter modules that you can use to interact
-  -- with nvim-treesitter. You should go explore a few and see what interests you:
-  --
-  --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 }

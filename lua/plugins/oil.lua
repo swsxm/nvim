@@ -1,24 +1,42 @@
 return {
   'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {
-    -- This is where you define what columns Oil displays
-    columns = {
-      'icon', -- Shows the file type icon (powered by mini.icons)
-      'permissions', -- Shows standard Linux permissions (e.g., rw-r--r--)
-      'size', -- Shows the file size
-    },
-    -- You can also add other core Oil settings here if needed
-    -- default_file_explorer = true,
+  commit = '975a77c', 
+  dependencies = { 
+    { 'echasnovski/mini.icons', opts = {}, commit = '5b9076d' } 
   },
-  -- Optional dependencies
-  dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
-
-  -- Add your keybinds here
+  opts = {
+    delete_to_trash = true,
+    skip_confirm_for_simple_edits = false,
+    
+    columns = {
+      'icon',
+      'permissions',
+      'size',
+    },
+    
+    view_options = {
+      show_hidden = true,
+      is_always_hidden = function(name, _)
+        return name == '..' 
+          or name == '.git' 
+          or vim.startswith(name, '__') 
+          or name:lower():match('cache')
+      end,
+    },
+    
+    float = {
+      padding = 2,
+      max_width = 100,
+      max_height = 0.8, -- FIXED: 80% of screen height (0 would crash)
+      border = 'rounded',
+      win_options = {
+        winhl = 'Normal:NormalFloat',
+      },
+    },
+  },
   keys = {
-    { '<leader>o', '<cmd>Oil<CR>', desc = 'Open Oil file explorer' },
+    { '-', '<cmd>Oil<CR>', desc = 'Open parent directory' },
+    { '<leader>o', '<cmd>Oil --float<CR>', desc = 'File Explorer (Float)' },
   },
 }

@@ -1,61 +1,68 @@
 return {
   'nvim-lualine/lualine.nvim',
+  -- Pinned to stable 2026 release
+  commit = '47f91c4', 
+  dependencies = { 
+    { 'echasnovski/mini.icons', commit = '5b9076d' } 
+  },
   config = function()
+    local hide_in_width = function()
+      return vim.fn.winwidth(0) > 100
+    end
+
     local mode = {
       'mode',
       fmt = function(str)
-        return ' ' .. str
-        -- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
+        return ' ' .. str 
       end,
     }
 
     local filename = {
       'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
-      path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+      file_status = true,
     }
-
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 100
-    end
 
     local diagnostics = {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
       symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-      colored = false,
+      colored = true, -- Better for quick visual scanning of errors
       update_in_insert = false,
-      always_visible = false,
       cond = hide_in_width,
     }
 
     local diff = {
       'diff',
-      colored = false,
-      symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
+      symbols = { added = ' ', modified = ' ', removed = ' ' }, 
       cond = hide_in_width,
     }
 
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'rose-pine', -- Set theme based on environment variable
-        -- Some useful glyphs:
-        -- https://www.nerdfonts.com/cheat-sheet
-        --        
+        theme = 'rose-pine', 
+        
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
-        disabled_filetypes = { 'alpha', 'neo-tree' },
+        
+        disabled_filetypes = { 
+          statusline = { 'alpha', 'neo-tree', 'dashboard', 'lazy', 'mason' },
+        },
         always_divide_middle = true,
+        globalstatus = true, 
       },
       sections = {
         lualine_a = { mode },
         lualine_b = { 'branch' },
         lualine_c = { filename },
-        lualine_x = { diagnostics, diff, { 'encoding', cond = hide_in_width }, { 'filetype', cond = hide_in_width } },
-        lualine_y = { 'location' },
-        lualine_z = { 'progress' },
+        lualine_x = { 
+          diagnostics, 
+          diff, 
+          { 'filetype', cond = hide_in_width } 
+        },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
@@ -65,8 +72,6 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      tabline = {},
-      extensions = { 'fugitive' },
     }
   end,
 }

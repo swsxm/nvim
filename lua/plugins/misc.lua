@@ -1,40 +1,36 @@
--- Standalone plugins with less than 10 lines of config go here
 return {
+  -- 1. Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth', commit = 'be69bff' },
+
+  -- 2. Fugitive
+  { 'tpope/vim-fugitive', commit = '96c1009' },
+
+  -- 3. Which-Key
   {
-    -- Detect tabstop and shiftwidth automatically
-    'tpope/vim-sleuth',
-  },
-  {
-    -- Powerful Git integration for Vim
-    'tpope/vim-fugitive',
-  },
-  {
-    -- GitHub integration for vim-fugitive
-    'tpope/vim-rhubarb',
-  },
-  {
-    -- Hints keybinds
     'folke/which-key.nvim',
+    commit = 'fcbf4ee',
+    event = 'VeryLazy', -- Load only when needed
+    opts = {
+      icons = { mapping = false },
+    },
   },
+
+  -- 4. Autopairs
   {
-    -- Autoclose parentheses, brackets, quotes, etc.
     'windwp/nvim-autopairs',
+    commit = '23320e7',
     event = 'InsertEnter',
-    config = true,
-    opts = {},
+    opts = {
+      check_ts = true,
+    },
   },
+
+  -- 5. TODO Comments: Highlights TODO, FIXME, etc.
   {
-    -- Highlight todo, notes, etc in comments
     'folke/todo-comments.nvim',
+    commit = '31e3c38',
     event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { { 'nvim-lua/plenary.nvim', commit = '5001291' } },
     opts = { signs = false },
-  },
-  {
-    -- High-performance color highlighter
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('colorizer').setup()
-    end,
   },
 }
