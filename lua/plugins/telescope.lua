@@ -8,7 +8,7 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim', commit = '6e51d7d' },
     {
       'nvim-telescope/telescope-fzf-native.nvim',
-      commit = '6e51d7d',
+      commit = '6fea601',
       build = 'make',
       cond = function()
         return vim.fn.executable('make') == 1

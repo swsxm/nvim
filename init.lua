@@ -28,7 +28,7 @@ require('lazy').setup {
   require 'plugins.grapple',
   require 'plugins.debug',
   require 'plugins.markdown-preview',
-  require 'plugins.code-companion'
+  require 'plugins.code-companion',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

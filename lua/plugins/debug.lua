@@ -6,7 +6,7 @@ return {
     dependencies = {
       { 'rcarriga/nvim-dap-ui', commit = 'f7d75cc' },
       { 'nvim-neotest/nvim-nio', commit = '21f5324' },
-      { 'mfussenegger/nvim-dap-python', commit = '3d698e2' },
+      { 'mfussenegger/nvim-dap-python', commit = '1808458' },
     },
     config = function()
       local dap = require('dap')
