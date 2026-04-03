@@ -4,6 +4,11 @@ require 'core.snippets' -- Custom code snippets
 
 vim.deprecate = function() end
 
+
+if vim.fn.has("win32") == 1 then
+  vim.env.CC = "gcc"
+end
+
 -- Set up the Lazy plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
