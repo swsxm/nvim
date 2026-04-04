@@ -28,8 +28,8 @@ return {
       vim.lsp.config(server, { capabilities = capabilities })
     end
 
-    -- Type checker: ty (Astral) pairs perfectly with ruff, no conflicts
-    -- Not in Mason yet — install manually: `uv tool install ty`
+    -- Type checker: ty (Astral) pairs perfectly with ruff
+    -- If wanted `uv tool install ty`
     -- Then enable with:
     -- vim.lsp.config('ty', { capabilities = capabilities })
     -- vim.lsp.enable('ty')

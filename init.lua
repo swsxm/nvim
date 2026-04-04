@@ -28,7 +28,7 @@ require('lazy').setup {
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
   require 'plugins.misc',
-  require 'plugins.grapple',
+  -- require 'plugins.grapple',
   require 'plugins.debug',
   require 'plugins.render-markdown',
 }

@@ -86,3 +86,39 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Explorer
 vim.keymap.set("n", "<leader>o", "<cmd>Explore<CR>", { desc = "Open Explorer" })
+
+-- Harpoon like native setup
+vim.keymap.set('n', '<leader>a', function()
+    local current_file_full = vim.fn.expand('%:p') -- Get absolute path for accurate comparison
+    local current_file_rel = vim.fn.expand('%')    -- Get relative path for commands
+    local filename = vim.fn.expand('%:t')          -- Get just the filename for the print message
+    
+    local arglist = vim.fn.argv()
+    local is_in_list = false
+
+    for _, arg in ipairs(arglist) do
+        if vim.fn.fnamemodify(arg, ':p') == current_file_full then
+            is_in_list = true
+            break
+        end
+    end
+
+    if is_in_list then
+        vim.cmd('argdelete ' .. vim.fn.fnameescape(current_file_rel))
+        print("Harpoon: Removed [" .. filename .. "]")
+    else
+        vim.cmd('$argadd %')
+        vim.cmd('argdedup')
+        print("Added [" .. filename .. "]")
+    end
+
+    vim.defer_fn(function()
+        vim.cmd('echo ""')
+    end, 1000)
+    
+end, { desc = "Toggle file in arglist" })
+
+vim.keymap.set('n', '<leader>1', '<cmd>1argu<CR>', { desc = "Go to arglist 1" })
+vim.keymap.set('n', '<leader>2', '<cmd>2argu<CR>', { desc = "Go to arglist 2" })
+vim.keymap.set('n', '<leader>3', '<cmd>3argu<CR>', { desc = "Go to arglist 3" })
+vim.keymap.set('n', '<leader>4', '<cmd>4argu<CR>', { desc = "Go to arglist 4" })
