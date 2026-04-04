@@ -5,10 +5,6 @@ require 'core.snippets' -- Custom code snippets
 vim.deprecate = function() end
 
 
-if vim.fn.has("win32") == 1 then
-  vim.env.CC = "gcc"
-end
-
 -- Set up the Lazy plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,6 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     error('Error cloning lazy.nvim:\n' .. out)
   end
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 -- Set up plugins
@@ -31,11 +28,9 @@ require('lazy').setup {
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
   require 'plugins.misc',
-  require 'plugins.oil',
   require 'plugins.grapple',
   require 'plugins.debug',
   require 'plugins.markdown-preview',
-  require 'plugins.code-companion',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
