@@ -22,7 +22,6 @@ return {
     require('mason-lspconfig').setup({ ensure_installed = servers })
 
     vim.diagnostic.config({ virtual_text = false, signs = true, underline = true })
-    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     for _, server in ipairs(servers) do
