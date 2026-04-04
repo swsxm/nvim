@@ -30,7 +30,7 @@ require('lazy').setup {
   require 'plugins.misc',
   require 'plugins.grapple',
   require 'plugins.debug',
-  require 'plugins.markdown-preview',
+  require 'plugins.render-markdown',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
