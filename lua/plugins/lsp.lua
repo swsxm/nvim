@@ -1,5 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -9,6 +10,7 @@ return {
     local servers = {
       'lua_ls',
       'ruff',
+      'pyright', 
       'terraformls',
       'yamlls',
       'jsonls',
@@ -24,8 +26,25 @@ return {
     vim.diagnostic.config({ virtual_text = false, signs = true, underline = true })
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
+    
     for _, server in ipairs(servers) do
-      vim.lsp.config(server, { capabilities = capabilities })
+      local opts = { capabilities = capabilities }
+      
+      if server == 'pyright' then
+        opts.settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "off",
+              ignore = { '*' },
+            },
+          },
+        }
+        opts.handlers = {
+          ["textDocument/publishDiagnostics"] = function() end,
+        }
+      end
+
+      vim.lsp.config(server, opts)
     end
 
     -- Type checker: ty (Astral) pairs perfectly with ruff

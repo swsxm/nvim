@@ -1,15 +1,14 @@
 return {
   -- 1. Detect tabstop and shiftwidth automatically
-  { 'tpope/vim-sleuth', commit = 'be69bff' },
+  { 'tpope/vim-sleuth' },
 
   -- 2. Fugitive
-  { 'tpope/vim-fugitive', commit = '96c1009' },
+  { 'tpope/vim-fugitive',},
 
   -- 3. Which-Key
   {
     'folke/which-key.nvim',
-    commit = 'fcbf4ee',
-    event = 'VeryLazy', -- Load only when needed
+    event = 'VeryLazy', 
     opts = {
       icons = { mapping = false },
     },
@@ -18,7 +17,6 @@ return {
   -- 4. Autopairs
   {
     'windwp/nvim-autopairs',
-    commit = '23320e7',
     event = 'InsertEnter',
     opts = {
       check_ts = true,
@@ -28,9 +26,8 @@ return {
   -- 5. TODO Comments: Highlights TODO, FIXME, etc.
   {
     'folke/todo-comments.nvim',
-    commit = '31e3c38',
     event = 'VimEnter',
-    dependencies = { { 'nvim-lua/plenary.nvim', commit = '5001291' } },
+    dependencies = { { 'nvim-lua/plenary.nvim' } },
     opts = { signs = false },
   },
 }

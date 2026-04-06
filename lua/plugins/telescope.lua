@@ -1,11 +1,10 @@
 return {
   'nvim-telescope/telescope.nvim',
-  commit = '3333a52', 
   event = 'VimEnter',
   dependencies = {
-    { "nvim-lua/plenary.nvim", commit = "5001291" },
-    { 'echasnovski/mini.icons', commit = '5b9076d' } ,
-    { 'nvim-telescope/telescope-ui-select.nvim', commit = '6e51d7d' },
+    { "nvim-lua/plenary.nvim" },
+    { 'echasnovski/mini.icons' } ,
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       commit = '6fea601',

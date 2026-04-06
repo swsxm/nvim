@@ -1,14 +1,11 @@
 return {
   'MeanderingProgrammer/render-markdown.nvim',
-  -- Pinned to stable 2026 release
-  commit = 'e3c18dd', 
   dependencies = { 
     { 'nvim-treesitter/nvim-treesitter'},
-    { 'echasnovski/mini.icons', commit = '5b9076d' } 
+    { 'echasnovski/mini.icons' } 
   },
-  ft = { 'markdown', 'codecompanion' }, -- Also renders your AI chat buffers!
+  ft = { 'markdown' }, 
   opts = {
-    -- Clean, professional UI
     heading = {
       sign = false,
       icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },

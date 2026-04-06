@@ -1,12 +1,10 @@
 return {
   {
     'mfussenegger/nvim-dap',
-    -- Pinned to stable 2026 commits for security
-    commit = '6a5bba0',
     dependencies = {
-      { 'rcarriga/nvim-dap-ui', commit = 'f7d75cc' },
-      { 'nvim-neotest/nvim-nio', commit = '21f5324' },
-      { 'mfussenegger/nvim-dap-python', commit = '1808458' },
+      { 'rcarriga/nvim-dap-ui'},
+      { 'nvim-neotest/nvim-nio',},
+      { 'mfussenegger/nvim-dap-python'},
     },
     config = function()
       local dap = require('dap')
@@ -34,19 +32,16 @@ return {
         },
       })
 
-      -- Automatic UI state management
       dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
       dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
       dap.listeners.before.event_exited['dapui_config'] = function() dapui.close() end
 
-      -- Hardened Path Logic: Fallback to system python
       local debugpy_path = vim.fn.expand('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
       if vim.fn.executable(debugpy_path) == 0 then
         debugpy_path = 'python3'
       end
       require('dap-python').setup(debugpy_path)
 
-      -- Helper: Secure floating UI elements
       local function open_float(id)
         dapui.float_element(id, {
           width = math.floor(vim.o.columns * 0.80),
@@ -55,6 +50,7 @@ return {
           position = 'center',
         })
       end
+
       -- visualize df setup
       local function visualize_df()
         local var_name = vim.fn.expand('<cexpr>')
@@ -133,11 +129,10 @@ _nvim_export_csv(%s, '%s')
               end
             })
             vim.cmd('startinsert')
-          end, 20) -- 20ms buffer for disk sync
+          end, 20)
         end)
       end
 
-      -- Execution Control Keymaps
       local map = vim.keymap.set
       map('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Debug: Breakpoint' })
       map('n', '<leader>dc', dap.continue, { desc = 'Debug: Continue' })
@@ -146,12 +141,10 @@ _nvim_export_csv(%s, '%s')
       map('n', '<leader>do', dap.step_over, { desc = 'Debug: Step Over' })
       map('n', '<leader>dr', function() require('dap-python').test_method() end, { desc = 'Debug: Run Test' })
 
-      -- Inspection Keymaps
       map('n', '<leader>de', function() dapui.eval(nil, { enter = true }) end, { desc = 'Debug: Eval' })
       map('v', '<leader>de', function() dapui.eval(nil, { enter = true }) end, { desc = 'Debug: Eval selection' })
       map('n', '<leader>dv', visualize_df, { desc = 'Debug: VisiData Inspector' })
 
-      -- UI Utility Keymaps
       map('n', '<leader>d1', function() open_float('scopes') end, { desc = 'Debug: Variables' })
       map('n', '<leader>d5', function() open_float('repl') end, { desc = 'Debug: REPL' })
 

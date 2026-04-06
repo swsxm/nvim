@@ -1,7 +1,5 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
-  -- Pinned to stable 2026 release
-  commit = 'd28a3f7', 
   main = 'ibl',
   opts = {
     indent = {

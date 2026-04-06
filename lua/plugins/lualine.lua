@@ -1,9 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
-  -- Pinned to stable 2026 release
-  commit = '47f91c4', 
   dependencies = { 
-    { 'echasnovski/mini.icons', commit = '5b9076d' } 
+    { 'echasnovski/mini.icons' } 
   },
   config = function()
     local hide_in_width = function()
@@ -27,7 +25,7 @@ return {
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
       symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-      colored = true, -- Better for quick visual scanning of errors
+      colored = true, 
       update_in_insert = false,
       cond = hide_in_width,
     }
