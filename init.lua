@@ -577,7 +577,7 @@ require("blink.cmp").setup({
 		["<CR>"] = { "accept", "fallback" },
 		["<C-j>"] = { "select_next", "fallback" },
 		["<C-k>"] = { "select_prev", "fallback" },
-		["<Tab>"] = { "snippet_forward", "fallback" },
+		["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
 		["<S-Tab>"] = { "snippet_backward", "fallback" },
 	},
 	appearance = { nerd_font_variant = "mono" },
@@ -590,8 +590,7 @@ require("blink.cmp").setup({
 	},
 
 	fuzzy = {
-		implementation = "prefer_rust",
-		prebuilt_binaries = { download = true },
+		implementation = "lua",
 	},
 })
 
